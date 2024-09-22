@@ -3,13 +3,13 @@ import reactLogo from "../assets/react.svg";
 import viteLogo from "/vite.svg";
 import "../App.css";
 // eslint-disable-next-line no-unused-vars
-import { increment, decrement, reset } from "../../store/counterSlice";
+import { increment, initial, pushNewCount } from "../../store/counterSlice";
 function Inc() {
   const dispatch = useDispatch();
   let count = useSelector((store) => store.counter.count);
-  console.log(count);
   const setCount = () => {
     dispatch(increment());
+    dispatch(pushNewCount(count + 1));
   };
 
   return (

@@ -2,14 +2,13 @@ import { useSelector, useDispatch } from "react-redux";
 import reactLogo from "../assets/react.svg";
 import viteLogo from "/vite.svg";
 import "../App.css";
-// eslint-disable-next-line no-unused-vars
-import { increment, decrement, reset } from "../../store/counterSlice";
+import { pushNewCount, decrement } from "../../store/counterSlice";
 function Dec() {
   const dispatch = useDispatch();
   let count = useSelector((store) => store.counter.count);
-  console.log(count);
   const setCount = () => {
     dispatch(decrement());
+    dispatch(pushNewCount(count - 1));
   };
   return (
     <>
